@@ -1,16 +1,16 @@
-import msvcrt
+import readchar
 
 def main():
     print("Presiona cualquier tecla para mostrarla. Presiona ↑ para salir.")
     
     while True:
-        key = msvcrt.getch().decode('utf-8')
+        key = readchar.readkey()
         
-        if key == 'Alt+72':  # El código de flecha es '\x1b' (Escape)
-            arrow_key = msvcrt.getch().decode('utf-8')
+        if key == '\x1b':  # El código de flecha es '\x1b' (Escape)
+            arrow_key = readchar.readkey()
             if arrow_key == '[':
-                direction = msvcrt.getch().decode('utf-8')
-                if direction == 'A':  # Flecha hacia arriba
+                direction = readchar.readkey()
+                if direction == '\x1b':  # Flecha hacia arriba
                     print("¡Tecla de flecha hacia arriba presionada! Saliendo del programa.")
                     break
             else:
